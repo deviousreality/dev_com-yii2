@@ -1,0 +1,36 @@
+// Copyright 2015 Bisk Education
+//
+// Media Objects
+//
+/// <reference path="../_global/_variables.scss" />
+/// <reference path="../_global/_mixins.scss" />
+/// <reference path="../_vendors/susy/language/_susy.scss" />
+.m-media {
+  display: table;
+  overflow: hidden;
+}
+.m-media,
+.m-media-body {
+  zoom: 1;
+}
+.m-media-body {
+  @include span(12);
+  @include last;
+}
+.m-media-left {
+  width: span(2);
+  padding-right: gutter();
+}
+.m-media-right {
+  width: span(2);
+  padding-left: gutter();
+  float: right;
+}
+.m-media-body,
+.m-media-left,
+.m-media-right {
+  display: table-cell;
+}
+.m-media-middle {
+  vertical-align: middle;
+}

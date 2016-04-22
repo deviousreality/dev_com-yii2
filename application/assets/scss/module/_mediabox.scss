@@ -1,0 +1,20 @@
+// Copyright 2015 DeviousReality
+//
+// Boxes
+//
+/// <reference path="../global/_variables.scss" />
+/// <reference path="../global/_colors.scss" />
+
+.m-mediabox {
+  zoom: 1;
+}
+
+.m-mediabox-image {
+  overflow: hidden;
+  position: relative;
+}
+
+.m-mediabox-content {
+  position: relative;
+}
+

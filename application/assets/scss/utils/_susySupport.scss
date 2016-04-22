@@ -1,0 +1,19 @@
+//Support file for Susy
+
+$bourbon: (
+  columns: $column,
+  gutters: $gutter,
+  container: $max-width
+);
+
+@mixin container() {
+  @include outer-container(100%);
+}
+
+@mixin span($span) {
+  @include span-columns($span);
+}
+
+@mixin last {
+  @include omega;
+}

@@ -1,0 +1,13 @@
+.l-header {
+  clear: both;
+  @at-root #{&}__menuicon {
+    margin: 1.4rem 0.5rem 0.5rem 2rem;
+    padding: 0.4rem 1.2rem;
+  }
+
+  @at-root #{&}__pagetitle {
+    margin: 0;
+    padding: 0 1rem 2rem;
+  }
+}
+

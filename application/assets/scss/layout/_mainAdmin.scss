@@ -1,0 +1,9 @@
+.l-main {
+  margin: 0;
+  position: inherit;
+  padding: 0 1.5rem;
+  @include media (min-width $bp-medium, 2) {
+    margin: 0 0 0 22rem;
+    z-index: $z-nav-collapse;
+  }
+}

@@ -1,0 +1,24 @@
+// Copyright 2015 Bisk Education
+//
+// Title bars
+//
+/// <reference path="../global/_variables.scss" />
+.m-bar {
+  margin: 2.5rem 0 1.5rem;
+  padding: 1rem 1.5rem;
+
+  @at-root #{&}__icon {
+    display: inline-block;
+    margin-right: 1rem;
+    height: 2rem;
+  }
+}
+
+.m-bar-title {
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  margin: 0.5rem 0 0;
+  font-size: 1.4rem;
+  font-weight: $font-extra-light;
+}

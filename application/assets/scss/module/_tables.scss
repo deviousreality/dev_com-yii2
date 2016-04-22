@@ -1,0 +1,58 @@
+// Copyright 2015 Bisk Education
+//
+// Tables
+//
+// We've isolated table to a class of table in order to avoid
+// the widespread us of tables in other modules.
+
+
+.m-table {
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem 0;
+  font-size: $font-size-base;
+
+  // Cells
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        padding: $table-cell-padding;
+        vertical-align: middle;
+        line-height: $line-height-base;
+        border-top: solid 1px $table-cell-border;
+        text-align: left;
+      }
+    }
+  }
+
+  // Bottom align for column headings
+  > thead > tr > th {
+    vertical-align: bottom;
+  }
+}
+.m-table-bordered {
+  border: solid 1px $table-cell-border;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border: solid 1px $table-cell-border;
+      }
+    }
+  }
+}
+.m-table-stripped {
+  > tbody > tr:nth-of-type(odd) {
+    background: $table-alt-bkg;
+  }
+}
+.m-table-hover {
+  > tbody > tr:hover {
+    background-color: $table-hover-bkg;
+  }
+}

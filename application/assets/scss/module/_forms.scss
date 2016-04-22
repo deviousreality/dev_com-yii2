@@ -1,0 +1,224 @@
+// Copyright 2015 Bisk Education
+//
+// Forms
+//
+/// <reference path="../_global/_variables.scss" />
+/// <reference path="../_global/_mixins.scss" />
+/// <reference path="../_vendors/susy/language/_susy.scss" />
+label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+// fieldset {
+//   padding: 0;
+//   margin: 0;
+//   border: 0;
+//   margin: 1rem 0;
+// }
+// legend {
+//   margin: 1rem 0;
+//   font-size: 1.8rem;
+//   font-weight: $font-normal;
+// }
+.m-form-label {
+  color: $form-label-color;
+  @include media(min-width $bp-smaller max-width $bp-medium, 2) {
+    text-align: right;
+  }
+}
+
+// Common Form Controls // ------------------------------------
+.m-form-input {
+  @include placeholder {
+    color: $input-color;
+  }
+  display: block;
+  position: relative;
+  width: 100%;
+  //margin: 1rem 0;
+  padding: 0.6rem 1.2rem;
+  background: $input-bkg;
+  border: 1px solid $input-border;
+  color: $input-color;
+  &[disabled],
+  &.disabled,
+  &[readonly],
+  fieldset[disabled] & {
+    @include opacity(0.5);
+    background: $input-bkg-disabled;
+    cursor: not-allowed;
+  }
+  // Feedback States
+  &.has-error {
+    @include placeholder {
+      color: $state-error-color;
+    }
+    border-color: $state-error-border;
+    outline-color: $state-error-border;
+  }
+  &.has-success {
+    @include placeholder {
+      color: $state-success-border;
+    }
+    border-color: $state-success-border;
+    outline-color: $state-success-border;
+  }
+  &.has-warning {
+    @include placeholder {
+      color: $state-warning-color;
+    }
+    border-color: $state-warning-border;
+    outline-color: $state-warning-border;
+  }
+}
+
+// Form Groups // ------------------------------------
+
+// Group form inputs with field validation
+// help text or key press help text.
+.m-form-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+// Radio & Checkboxes // ------------------------------------
+.m-radio,
+.m-checkbox {
+  display: block;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  font-weight: $font-normal;
+  cursor: pointer;
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+}
+.m-radio-inline,
+.m-checkbox-inline {
+  display: inline-block;
+  position: relative;
+  padding-left: 2rem;
+  vertical-align: middle;
+  font-weight: $font-normal;
+  cursor: pointer;
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+}
+// Select Box // ------------------------------------
+.m-form-select {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 1rem 0;
+  border: solid 1px $input-border;
+  background: $input-bkg;
+  select {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 1rem 0 1rem 1rem;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+  &::after {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    //font-family: $font-icon;
+    content: '\f0d7';
+  }
+  // Select validation styles
+  &.has-error {
+    border-color: $state-error-border;
+    select {
+      outline-color: $state-error-border;
+    }
+  }
+  &.has-success {
+    border-color: $state-success-border;
+    select {
+      outline-color: $state-success-border;
+    }
+  }
+  // Hide validation icon for select boxes
+  + .m-form-help-text::after {
+    display: none;
+  }
+}
+@-moz-document url-prefix() {
+  .m-form-select select {
+    -moz-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+  }
+}
+select::-ms-expand {
+  display: none;
+}
+// Help Text // ------------------------------------
+.m-form-help-text {
+  color: $silver-chalice;
+  display: block;
+  margin-top: -1rem;
+  margin-bottom: 1rem;
+  &::after {
+    position: absolute;
+    top: 4.3rem;
+    right: 1.5rem;
+    //font-family: $font-icon;
+    font-size: 2rem;
+  }
+  // Help text validation styles.
+  // When added to input fields make sure to wrap
+  // in a .m-form-group
+  &.has-error {
+    color: $state-error-color;
+    &::after {
+     //content: '\f057';
+    }
+  }
+  &.has-success {
+    color: $state-success-color;
+    &::after {
+      //content: '\f058';
+    }
+  }
+}
+
+// Add Key press help inside input field
+// Look at Search for example
+.m-form-input-internal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem 0;
+}
+
+// Form Grid Types // ------------------------------------
+
+// Using now in Search and Navigation
+// Possible refactor as grids are implemented
+.m-form-inline {
+  @include container();
+  .m-form-icon {
+    @include span(1);
+    text-align: center;
+  }
+  .m-form-group {
+    @include span(9);
+  }
+  button,
+  .m-button {
+    @include span(2);
+  }
+}
+

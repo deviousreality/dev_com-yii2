@@ -1,0 +1,45 @@
+﻿// Copyright 2015 Bisk Education
+//
+// Underlay
+//
+/// <reference path="../_global/_variables.scss" />
+/// <reference path="../_global/_mixins.scss" />
+/// <reference path="../_vendors/susy/language/_susy.scss" />
+
+.m-underlay {
+  @include opacity(0);
+  @include ha();
+  @include transition(0.4s, opacity, ease-out);
+  width: 0;
+  position: fixed;
+  top: 0;
+  bottom: -300px;
+  z-index: $z-underlay;
+  .m-button-close {
+    top: 23px;
+  }
+  &.is-on,
+  &.is-open,
+  &.is-open-left,
+  &.is-open-right {
+    @include opacity(0.8);
+    width: 100%;
+    background: $white;
+  }
+  &.is-open-left {
+    left: 260px;
+    // @include transform(translateX(260px));
+    .m-button-close {
+      left: 2.5%;
+    }
+  }
+  &.is-open-right {
+    right: 260px;
+    // @include transform(translateX(-260px));
+    .m-button-close {
+      right: 2%;
+      left: inherit;
+    }
+  }
+}
+

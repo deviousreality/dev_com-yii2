@@ -1,0 +1,101 @@
+﻿// Copyright 2015 Bisk Education
+//
+// Nav Styles
+//
+/// <reference path="../_global/_variables.scss" />
+/// <reference path="../_global/_mixins.scss" />
+/// <reference path="../_vendors/susy/language/_susy.scss" />
+
+// Vertical Navigation // ------------------------------------
+.m-nav ul {
+  @include clearfix;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+// Offscreen Collapse Navigation // ------------------------------------
+.m-nav-collapse {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: 260px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: $mine-shaft;
+  // font-family: $font-family-secondary;
+  font-weight: $font-light;
+  z-index: $z-nav-collapse;
+}
+
+.m-nav {
+  @at-root #{&}__title {
+    padding: 0.5rem 0 0;
+    margin: 0;
+    text-indent: 1.25rem;
+    // font-family: $font-family-secondary;
+    font-weight: $font-light;
+    > ul {
+      margin-top: 0.5rem;
+      text-indent: 0;
+    }
+  }
+  @at-root #{&}__list-item {
+    padding: 0;
+    margin: 0;
+    // font-family: $font-family-secondary;
+    font-weight: $font-light;
+    a {
+      display: block;
+      padding: 1.25rem;
+      font-weight: $font-light;
+    }
+  }
+  @at-root #{&}__icon {
+    display: inline-block;
+    margin-right: 1rem;
+    height: 2rem;
+  }
+}
+
+//.m-nav-title {
+//  padding: 0.5rem 0 0;
+//  margin: 0;
+//  text-indent: 1.25rem;
+  // font-family: $font-family-secondary;
+//  font-weight: $font-light;
+//  > ul {
+//    margin-top: 0.5rem;
+//    text-indent: 0;
+//  }
+//}
+
+//.m-nav-list-item {
+//  padding: 0;
+//  margin: 0;
+  // font-family: $font-family-secondary;
+//  font-weight: $font-light;
+//  a {
+//    display: block;
+//    padding: 1.25rem;
+//    font-weight: $font-light;
+//  }
+//}
+
+// Might need to find a better
+// place for this, can't think while rushed
+
+.l-header,
+.l-main,
+.l-footer,
+.m-nav {
+  @include ha();
+  @include transition(0.4s, transform, ease-out);
+  &.is-open-left {
+    @include transform(translateX(260px));
+  }
+  &.is-open-right {
+    @include transform(translateX(-260px));
+  }
+}
+
+

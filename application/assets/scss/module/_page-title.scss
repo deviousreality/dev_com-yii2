@@ -1,0 +1,59 @@
+﻿// Copyright 2015 Bisk Education
+//
+// Page Title
+//
+/// <reference path="../_global/_variables.scss" />
+/// <reference path="../_global/_mixins.scss" />
+/// <reference path="../_vendors/susy/language/_susy.scss" />
+
+.m-page-title {
+  display: block;
+  //margin: 2rem 0;
+  font-size: 2.4rem;
+  //line-height: 2.75rem;
+}
+.m-page-title-sub {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: $dusty-gray;
+}
+
+.m-page {
+  @at-root #{&}__breadcrumb {
+    list-style: outside none none;
+    padding-left: 0;
+    > li {
+      display: inline-block;
+    }
+    > li + li::before {
+      content: '/ ';
+      padding: 0 0.5rem;
+    }
+  }
+}
+
+//h1.pageTitle {
+//    float:left;
+//    font-size:3rem;
+//    line-height:2.75rem;
+//    margin:0;
+//    width:75%;
+//    @media @tablet, @tabletMini {
+//        width:60%;
+//    }
+//    @media @smartphone {
+//        font-size:2.5rem;
+//        line-height:2.5rem;
+//        width:100%;
+//    }
+//}
+//h1.pageTitle span,
+//h2.pageTitle span {
+//    color:#999;
+//    display:block;
+//    font-size:1.2rem;
+//    line-height:1.6rem;
+//    margin-top:10px;
+//}

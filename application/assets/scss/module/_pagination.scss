@@ -1,0 +1,107 @@
+﻿// Copyright 2015 Bisk Education
+//
+// Pagination Style
+//
+// Naming convention does not pertain to these styles
+// due to the MVC plugin used to generate the code.
+// I know it's such a bummer but we digress.
+// PagedList Specific classes (https://github.com/TroyGoode/PagedList)
+//
+/// <reference path="../global/_variables.scss" />
+/// <reference path="../global/_mixins.scss" />
+/// <reference path="../vendors/susy/language/_susy.scss" />
+
+.pagination {
+  @include container();
+  display: block;
+  margin: 0;
+  padding-left: 0;
+}
+.pagination > li {
+  display: inline-block;
+  padding: 0;
+}
+// Remove numbers and ellipsis on mobile
+.pagination > li:not(:first-child):not(:last-child) {
+  display: none;
+  @include media(phablet) {
+    display: inline-block;
+    margin: 0 0.3rem;
+  }
+}
+.pagination a {
+  @include background-gradient($button-tertiary-bkg, darken($button-tertiary-bkg, 8), vertical);
+  display: block;
+  float: left;
+  padding: 0 2rem;
+  border: 1px solid $button-tertiary-border;
+  color: $button-tertiary-color;
+  text-align: center;
+  line-height: 4rem;
+  @include media(phablet) {
+    padding: 0 1rem;
+  }
+}
+.pagination > li.active a,
+.pagination > li a:hover {
+  @include background-gradient(darken($button-tertiary-bkg, 5), darken($button-tertiary-bkg, 11), vertical);
+  border-color: darken($button-tertiary-border, 13);
+  color: $button-tertiary-color;
+  font-weight: $font-bold;
+}
+.pagination > li.disabled a {
+  background: $button-tertiary-bkg;
+  border-color: $button-tertiary-border;
+  color: lighten($button-tertiary-color, 33);
+}
+.pagination li:first-child,
+.pagination li:last-child {
+  width: 50%;
+  @include media(phablet) {
+    width: 13%;
+  }
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  @include border-radius(0, 0, 3px, 3px);
+  font-weight: $font-bold;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  @include border-radius(3px, 3px, 0, 0);
+  font-weight: $font-bold;
+}
+.pagination > li a[rel=prev],
+.pagination > li a[rel=next] {
+  width: 100%;
+  position: relative;
+}
+.pagination > li a[rel=prev] {
+  padding-left: 2rem;
+  &::before {
+    display: block;
+    position: absolute;
+    left: 35%;
+    top: 0.1rem;
+    //font-family: $font-icon;
+    content: '\f0d9';
+    @include media(phablet) {
+      left: 0.5rem;
+    }
+  }
+}
+.pagination > li a[rel=next] {
+  padding-right: 2rem;
+  margin-left: -1px; // Overlap prev button to form one border
+  &::after {
+    display: block;
+    position: absolute;
+    right: 35%;
+    top: 0.1rem;
+    //font-family: $font-icon;
+    content: '\f0da';
+    @include media(phablet) {
+      right: 0.5rem;
+    }
+  }
+}

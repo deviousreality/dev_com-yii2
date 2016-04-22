@@ -1,0 +1,37 @@
+﻿// Copyright 2015 Bisk Education
+//
+// Dropdowns
+//
+/// <reference path="../_global/_variables.scss" />
+/// <reference path="../_global/_mixins.scss" />
+/// <reference path="../_vendors/susy/language/_susy.scss" />
+
+.m-dropdown {
+  position: relative;
+  padding: 0;
+}
+.m-dropdown:hover > .m-dropdown-menu {
+  left: 0;
+}
+.m-dropdown-menu {
+  position: absolute;
+  left: -9999px;
+  width: auto;
+  padding-right: 1rem;
+  background: $mine-shaft;
+  white-space: nowrap;
+}
+.caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 3px;
+  margin-top: -5px;
+  vertical-align: middle;
+  border-top: 4px solid $white;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  // Firefox fix. Once fixed,
+  // we can just straight up remove this.
+  border-bottom: 0 dotted;
+}

@@ -1,0 +1,54 @@
+﻿// Copyright 2015 Bisk Education
+//
+// Modal Style
+//
+/// <reference path="../_global/_variables.scss" />
+/// <reference path="../_global/_mixins.scss" />
+/// <reference path="../_vendors/susy/language/_susy.scss" />
+
+.m-modal {
+  @include box-shadow(0, 0, 5px, 0, $silver);
+  display: none;
+  position: fixed;
+  top: 10%;
+  left: 2.5%;
+  width: 95%;
+  max-width: 96rem;
+  border: solid 1px $silver;
+  background: $white;
+  z-index: $z-m-modal;
+  @include media(phablet) {
+    &[data-size="medium"] {
+      width: 50%;
+      left: 25%;
+    }
+  }
+  &.is-open {
+    display: block;
+  }
+}
+.m-modal-header {
+  @include container();
+  padding: 1.5rem;
+  border: solid 1px $silver;
+  background: $concrete;
+}
+.m-modal-header-title {
+  @include span(11);
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 300;
+}
+.m-modal-header-close {
+  @include span(12);
+  margin-top: 5px;
+  font-size: 1.8rem;
+  text-align: center;
+  color: $tundora;
+}
+.m-modal-body {
+  padding: 1.5rem;
+}
+.m-modal-footer {
+  padding: 1.5rem;
+}

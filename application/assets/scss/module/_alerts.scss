@@ -1,0 +1,60 @@
+// Copyright 2015 Bisk Education
+//
+// Alerts
+//
+/// <reference path="../global/_variables.scss" />
+/// <reference path="../global/_mixins.scss" />
+
+.m-alert {
+  width: span(12);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: solid 1px transparent;
+  font-size: 1.6rem;
+
+  &.has-error {
+    border-color: $state-error-border;
+    background: $state-error-bkg;
+
+    .m-alert-title,
+    .m-alert-icon {
+      color: $state-error-color;
+    }
+  }
+  &.has-success {
+    border-color: $state-success-border;
+    background: $state-success-bkg;
+
+    .m-alert-title,
+    .m-alert-icon {
+      color: $state-success-color;
+    }
+  }
+  &.has-warning {
+    border-color: $state-warning-border;
+    background: $state-warning-bkg;
+
+    .m-alert-title,
+    .m-alert-icon {
+      color: $state-warning-color;
+    }
+  }
+  &.has-info {
+    border-color: $state-info-border;
+    background: $state-info-bkg;
+    color: $state-info-color;
+  }
+}
+.m-alert-title {
+  margin-top: 0;
+}
+.m-alert-lead {
+  margin-top: -0.5rem;
+  margin-bottom: 0;
+  font-size: 1.2rem;
+  font-weight: $font-bold;
+  font-style: italic;
+}
+.m-alert-icon {
+  font-size: 6.5rem;
+}

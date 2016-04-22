@@ -1,0 +1,219 @@
+// Copyright 2015 Bisk Education
+//
+// Buttons
+//
+// For Button styles resort to the button-style mixin
+// if the styles are ever being changed or manipulated.
+// Current design is rather all over the place and no
+// consistencies.
+/// <reference path="../global/variables.scss" />
+/// <reference path="../global/mixins.scss" />
+//button,
+.m-button {
+  width: auto;
+  display: inline-block;
+  margin: 1rem 0;
+  padding: 0 2rem;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  font-weight: $font-bold;
+  line-height: 4rem;
+  text-align: center;
+  text-indent: 0;
+  text-decoration: none;
+
+  // Icon within button
+  i.fa,
+  i[class*='lms-'] {
+    margin-right: 0.5rem;
+    font-size: 1.6rem;
+  }
+  //i.fa,
+  i[class*='lms-'] {
+    position: relative;
+    top: 2px;
+  }
+
+  // Disabled feature
+  &[disabled],
+  &.is-disabled {
+    pointer-events: none;
+  }
+}
+
+// Full width button
+.m-button-full {
+  width: 100%;
+}
+
+// Icon Button (No Text)
+.m-button-icon {
+  //i.fa,
+  i[class*='lms-'] {
+    margin-right: 0;
+  }
+}
+
+// Page change, common/repeatable actions
+.m-button-default {
+  @include button-style(default, $button-default-bkg, $button-default-border, $button-default-color);
+}
+// Primary page action, create, save, submit actions
+.m-button-primary {
+  @include button-style(primary, $button-primary-bkg, $button-primary-border, $button-primary-color);
+}
+// Similar or opposing option as to primary action. Preview, edit, remove, etc
+.m-button-secondary {
+  @include button-style(secondary, $button-secondary-bkg, $button-secondary-border, $button-secondary-color);
+}
+// Navigation, toggles, switches, pagination
+.m-button-tertiary {
+  @include button-style(tertiary, $button-tertiary-bkg, $button-tertiary-border, $button-tertiary-color);
+}
+// Green button. May or may not ever get used. **Revisit later.
+.m-button-success {
+  @include button-style(success, $button-success-bkg, $button-success-border, $button-success-color);
+}
+// Similar or opposing option as to primary action. Preview, edit, remove, etc
+.m-button-clear {
+  @include button-style(clear, $button-clear-bkg, $button-clear-border, $button-clear-color);
+}
+
+// Spinning Close Button // ------------------------------------
+.m-button-close {
+  @include transition(0.3s);
+  @include opacity(0);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin-top: -1px;
+  margin-left: -10px;
+  background: $tundora;
+  &::before,
+  &::after {
+    @include ha();
+    @include transition(0.3s);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    content: '';
+  }
+  &::before {
+    @include transform(rotate(0));
+    top: -6px;
+  }
+  &::after {
+    @include transform(rotate(0));
+    bottom: -6px;
+  }
+}
+
+
+.m-underlay.is-open-left .m-button-close,
+.m-underlay.is-open-right .m-button-close {
+  @include opacity(1);
+  background: none;
+  &::before,
+  &::after {
+    background: $tundora;
+  }
+  &::before {
+    @include transform(rotate(135deg));
+    top: 0;
+  }
+  &::after {
+    @include transform(rotate(225deg));
+    bottom: 0;
+  }
+}
+.m-underlay.is-open-right .m-button-close {
+  @include opacity(0);
+  @include media(laptop) {
+    @include opacity(1);
+  }
+}
+
+// Button Floating // ------------------------------------
+
+.m-button-floating {
+  @include transition(0.2s, all, ease-out);
+  position: fixed;
+  bottom: 20px;
+  right: 5%;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px $button-float-boxalpha;
+  background: $tundora;
+  white-space: nowrap;
+  z-index: $z-button-floating;
+  color: $white;
+  @include media(laptop) {
+    width: 0;
+    height: 0;
+  }
+  &:hover,
+  &:focus,
+  &:visited {color: $white;}
+  i {
+    @include opacity(1);
+    @include transition(0.4s);
+    display: block;
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    font-size: 24px;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    @include media(laptop) {
+      display: none;
+    }
+  }
+  &.is-open-left {
+    i { @include opacity(0); }
+  }
+}
+
+.m-button-floating.is-open-left .m-button-close {
+  @include opacity(1);
+  background: $tundora;
+  &::before,
+  &::after {
+    background: $white;
+  }
+  &::before {
+    @include transform(rotate(135deg));
+    top: 0;
+  }
+  &::after {
+    @include transform(rotate(225deg));
+    bottom: 0;
+  }
+}
+
+// Button Toggle // ------------------------------------
+
+.m-button-toggle {
+  display: inline-block;
+  width: auto;
+  padding: 0.2rem;
+  margin: 0.8rem 0;
+  border: solid 1px $button-default-border;
+  border-radius: 4px;
+  background: $white;
+  .m-button {
+    margin: 0;
+  }
+  > .is-inactive {
+    border-color: transparent;
+    background: transparent;
+  }
+}

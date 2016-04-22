@@ -1,0 +1,19 @@
+
+.l-navbar {
+  background-color: transparent;
+  position: relative;
+  min-height: 5rem;
+  @at-root #{&}--static-side {
+    display: none;
+    position: absolute;
+    width: 7rem;
+    @include media (min-width $bp-medium, 2) {
+      width: 22rem;
+      z-index: $z-nav-collapse;
+      display: block;
+    }
+  }
+  @at-root  #{&}--static-top {
+    margin: 0;
+  }
+}

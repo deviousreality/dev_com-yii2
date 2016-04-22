@@ -1,0 +1,53 @@
+// Copyright 2015 Bisk Education
+//
+// Boxes
+//
+/// <reference path="../global/_variables.scss" />
+/// <reference path="../global/_colors.scss" />
+/// <reference path="../vendors/susy/language/_susy.scss" />
+
+.m-box {
+  margin-bottom: 2rem;
+  border: solid 1px $mercury;
+  background: $white;
+}
+.m-box-secondary {
+  margin-bottom: 2rem;
+  border: solid 1px $mercury;
+  background: $concrete;
+  &.is-empty {
+    display: table;
+    width: 100%;
+    color: $dusty-gray;
+    text-align: center;
+    .m-box-body {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}
+.m-box-header {
+  padding: 2rem;
+  background: $concrete;
+  font-size: 1.4rem;
+  font-weight: $font-bold;
+}
+.m-box-detail-icon {
+  font-size: 6rem;
+}
+
+// Box contents
+.m-box-body,
+.m-box-gutter {
+  padding: 2rem;
+}
+
+// Alternate box body
+.m-box-gutter {
+  width: 100%;
+  margin-bottom: -1px;
+  border-style: solid;
+  border-color: $mercury;
+  border-width: 1px 0;
+  background: $concrete;
+}

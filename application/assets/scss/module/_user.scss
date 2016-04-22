@@ -1,0 +1,57 @@
+﻿// Copyright 2015 Bisk Education
+//
+// Title bars
+//
+/// <reference path="../_global/_variables.scss" />
+/// <reference path="../_global/_mixins.scss" />
+/// <reference path="../_vendors/susy/language/_susy.scss" />
+.m-user {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  // padding: 1rem 1.5rem;
+}
+.m-user-avatar {
+  width: 45px;
+  height: 45px;
+  float: left;
+  margin: 0 1rem 0 0;
+  a {
+    display: block;
+  }
+}
+.m-user-name {
+  display: block;
+  min-width: 75px;
+  max-width: 180px;
+  float: left;
+  font-size: 1.4rem;
+  font-weight: $font-normal;
+  line-height: 45px;
+  > a {
+    @include text-overflow(ellipsis);
+  }
+}
+.m-user-right {
+  .m-user-avatar {
+    margin: 0 0 0 1rem;
+    float: right;
+  }
+  .m-user-name {
+    float: right;
+    text-align: right;
+  }
+}
+.m-user-med {
+  display: block;
+  overflow: hidden;
+  .m-user-avatar {
+    width: 45px;
+    height: 45px;
+    margin-left: 1rem;
+  }
+  .m-user-name {
+    line-height: 45px;
+    text-align: right;
+  }
+}

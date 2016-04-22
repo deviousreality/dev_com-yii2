@@ -1,0 +1,3 @@
+<?php
+
+AppAssetHeader::register($this);
